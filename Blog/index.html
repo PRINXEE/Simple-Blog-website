@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   
+        
+  
+
+   <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+
+<script src="main.js"></script>
+</head>
+<body class="h-100">
+    <nav class="navbar navbar-expand-lg bg-dark text-white">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a class="navbar-brand" style="color: whitesmoke; text-decoration-style: wavy;" href="index.html">
+                        Blog App
+                    </a>
+                </li>
+
+                <li>
+                    <a class="nav-link" style="color: whitesmoke; text-decoration-style: wavy;" href="#" onclick="switchView('home.html')">
+                        <span style = "color: white;">HOME</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="nav-link" style="color: whitesmoke; text-decoration-style: wavy;" href="#" onclick="switchView('myblog.html')">
+                        <span style="color: white;">My Blogs</span>
+                    </a>
+                </li>
+            </ul>
+
+
+            <div class="dropdown navbar-right">
+                <button 
+                id="option-id"
+                class="btn btn-light dropdown-toggle bg-dark text-white"
+                type="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+                    options
+                </button>
+
+                <div class="dropdown-menu"
+                aria-labelledby="option-id"
+                >
+                <a href="#" class="dropdown-item" id="btn-logout">
+                    logout
+                </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row h-100 bg-light">
+        <div class="col-lg-0 bg-secondary">
+            <ul class="nav flex-colum">
+            </ul>
+
+        </div>
+
+        <div class="col-lg-12">
+            <div class="container" id="container"></div>
+               
+            
+    </div>
+
+        
+    <script src="js/index.js"></script>
+    
+    <script>
+        firebase.auth().onAuthStateChanged(function(user){
+            if(!user){
+                window.location.href = "singin.html";
+            }
+        });
+    </script>
+</body>
+</html>
